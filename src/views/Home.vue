@@ -9,12 +9,12 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-import HelloWorld1 from '@/components/HelloWorld.vue'
-import HelloWorld2 from '@/components/HelloWorld.vue'
+import HelloWorld from "@/components/HelloWorld.vue"
+import HelloWorld1 from "@/components/HelloWorld.vue"
+import HelloWorld2 from "@/components/HelloWorld.vue"
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     HelloWorld,
     HelloWorld1,
