@@ -25,6 +25,6 @@ module.exports = {
     confirmCommit: '确认使用以上信息提交？(y/n/e/h)'
   },
   // 跳过问题
-  skipQuestions: ['body', 'footer'],
+  skipQuestions: ['body', 'footer']
   // subject文字长度
 }
