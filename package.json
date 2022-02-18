@@ -3,17 +3,43 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prepare": "husky install",
-    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "cm": "git-cz"
+    "cm": "git-cz",
+    "dev": "vue-cli-service serve",
+    "prepare": "husky install"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^3.0.0",
+    "element-plus": "^1.0.2-beta.28",
+    "svg-sprite-loader": "^6.0.11",
+    "vue": "^3.2.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-component": "^1.1.1",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.3.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^9.5.0",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.2.1",
+    "sass-loader": "^8.0.0"
   },
   "config": {
     "commitizen": {
@@ -28,26 +54,5 @@
       "eslint --fix",
       "git add"
     ]
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^16.2.1",
-    "@commitlint/config-conventional": "^16.2.1",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "babel-eslint": "^10.1.0",
-    "commitizen": "^4.2.4",
-    "cz-conventional-changelog": "^3.3.0",
-    "cz-customizable": "^6.3.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vue": "^7.0.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^9.5.0",
-    "prettier": "^2.2.1"
   }
 }
