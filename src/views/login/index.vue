@@ -1,26 +1,42 @@
 <template>
   <div class="login-con">
     <el-form
-      ref="formRef"
       :model="loginForm"
       label-width="0px"
+      :rules="rules"
+      ref="formRef"
       class="demo-dynamic"
     >
       <h2>LOGIN</h2>
-      <el-form-item prop="username">
+      <el-form-item prop="userName">
         <!-- <el-input
-          v-model="loginForm.username"
+          v-model="loginForm.userName"
           placeholder="请输入用户名"
         ></el-input> -->
-        <input type="text" placeholder="请输入用户名" />
+        <input
+          type="text"
+          v-model="loginForm.userName"
+          placeholder="请输入用户名"
+        />
       </el-form-item>
-      <el-form-item prop="password">
+      <el-form-item prop="password" class="password-item">
         <!-- <el-input
           placeholder="请输入密码"
           type="password"
           v-model="loginForm.password"
         /> -->
-        <input type="password" placeholder="请输入密码" />
+        <input
+          :type="passwordEyeClass"
+          v-model="loginForm.password"
+          placeholder="请输入密码"
+        />
+        <span class="svg-con">
+          <svg-icon
+            className="eye-open"
+            @click="handleChangeEye"
+            :icon="passwordEyeClass === 'password' ? 'eye-close' : 'eye-open'"
+          ></svg-icon>
+        </span>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm(formRef)">登录</el-button>
@@ -31,10 +47,39 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import { validatePassword } from './rules'
+const formRef = ref(null)
+const passwordEyeClass = ref('password')
 const loginForm = ref({
-  username: 'super-admin',
+  userName: 'super-admin',
   password: '123456'
 })
+const rules = ref({
+  userName: [
+    {
+      required: true,
+      trigger: 'blur',
+      message: '请输入用户名'
+    }
+  ],
+  password: [
+    {
+      required: true,
+      trigger: 'blur',
+      validator: validatePassword()
+    }
+  ]
+})
+const handleChangeEye = () => {
+  passwordEyeClass.value =
+    passwordEyeClass.value === 'password' ? 'text' : 'password'
+}
+const submitForm = () => {
+  formRef.value.validate(valid => {
+    if (!valid) return
+    console.log('校验成功')
+  })
+}
 </script>
 <style lang="scss" scoped>
 .login-con {
@@ -45,6 +90,14 @@ const loginForm = ref({
   position: relative;
   padding-top: 10%;
   box-sizing: border-box;
+}
+.password-item {
+  position: relative;
+}
+.svg-con {
+  position: absolute;
+  top: 5px;
+  right: 53px;
 }
 .demo-dynamic {
   width: 20%;
