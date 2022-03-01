@@ -1,4 +1,4 @@
-import SvgIcon from '@/components/svgIcon'
+import SvgIcon from '@/components/svgIcon/index.vue'
 const svgRequire = require.context('@/svg', false, /\.svg$/)
 svgRequire.keys().forEach(svgIcon => svgRequire(svgIcon))
 
